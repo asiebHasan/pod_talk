@@ -1,17 +1,29 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{ __("You're logged in!") }}
+@section('title', 'dashboard')
+
+@section('content')
+    <header class="site-header d-flex flex-column justify-content-center align-items-center"
+        style="min-height: 360px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-12 text-center">
+                    <h2 class="mb-0">Welcome, {{ Auth::user()->name }}!</h2>
                 </div>
             </div>
         </div>
-    </div>
-</x-app-layout>
+    </header>
+
+    <section class="dashboard-section section-padding">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 col-12">
+                    
+                    <p>This is your dashboard where you can manage your account and settings.</p>
+                    <!-- Add more dashboard content here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+@endsection

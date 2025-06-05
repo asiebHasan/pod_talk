@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand me-lg-5 me-0" href="{{route('home')}}">
+        <a class="navbar-brand me-lg-5 me-0" href="{{ route('home') }}">
             <img src="images/pod-talk-logo.png" class="logo-image img-fluid" alt="templatemo pod talk">
         </a>
 
@@ -23,15 +23,18 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-lg-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteNamed('home') ? 'active' : '' }}" href="{{route('home')}}">Home</a>
+                    <a class="nav-link {{ Route::currentRouteNamed('home') ? 'active' : '' }}"
+                        href="{{ route('home') }}">Home</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteNamed('about') ? 'active' : '' }}" href="{{ route('about')}}">About</a>
+                    <a class="nav-link {{ Route::currentRouteNamed('about') ? 'active' : '' }}"
+                        href="{{ route('about') }}">About</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link {{ Route::currentRouteNamed('about') ? 'contact' : '' }}" href="{{route('contact')}}">Contact</a>
+                    <a class="nav-link {{ Route::currentRouteNamed('about') ? 'contact' : '' }}"
+                        href="{{ route('contact') }}">Contact</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -39,18 +42,35 @@
                         data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
 
                     <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{route('list')}}">Listing Page</a></li>
+                        <li><a class="dropdown-item" href="{{ route('list') }}">Listing Page</a></li>
 
-                        <li><a class="dropdown-item" href="{{route('details')}}">Detail Page</a></li>
+                        <li><a class="dropdown-item" href="{{ route('details') }}">Detail Page</a></li>
                     </ul>
                 </li>
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link " href="{{route('dashboard')}}">Hi! {{ Auth::user()['name'] }}</a>
+                    </li>
+                @endauth
 
-                
             </ul>
 
-            <div class="ms-4">
-                <a href="#section_2" class="btn custom-btn custom-border-btn smoothscroll">Get started</a>
-            </div>
+            @auth
+
+                <div class="ms-4">
+                    <a href="#" class="btn custom-btn custom-border-btn smoothscroll"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Log Out
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </div>
+            @else
+                <div class="ms-4">
+                    <a href="{{ route('login') }}" class="btn custom-btn custom-border-btn smoothscroll">Login</a>
+                </div>
+            @endauth
         </div>
     </div>
 </nav>
