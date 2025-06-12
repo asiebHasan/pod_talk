@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>@yield('title', 'Pod Talk')</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="@yield('description', 'A podcast platform for sharing and discovering podcasts.')">
+
+    {{-- faviicon --}}
+    <link rel="icon" href="{{ asset('images/pod-talk-logo.png') }}" type="image/x-icon">
     <!-- Google Fonts (CDN) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

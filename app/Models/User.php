@@ -45,4 +45,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isPodcaster(): bool
+    {
+        return $this->is_podcaster;
+    }
+
+    public function isVerified(): bool
+    {
+        return $this->is_varified;
+    }
 }

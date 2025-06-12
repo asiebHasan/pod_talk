@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
         <a class="navbar-brand me-lg-5 me-0" href="{{ route('home') }}">
-            <img src="images/pod-talk-logo.png" class="logo-image img-fluid" alt="templatemo pod talk">
+            <img src="{{ asset('images/pod-talk-logo.png') }}" class="logo-image img-fluid" alt="templatemo pod talk">
         </a>
 
         <form action="#" method="get" class="custom-form search-form flex-fill me-3" role="search">
@@ -49,7 +49,7 @@
                 </li>
                 @auth
                     <li class="nav-item">
-                        <a class="nav-link " href="{{route('dashboard')}}">Hi! {{ Auth::user()['name'] }}</a>
+                        <a class="nav-link " href="{{ route('dashboard') }}">Hi! {{ Auth::user()['name'] }}</a>
                     </li>
                 @endauth
 
@@ -67,9 +67,16 @@
                     </form>
                 </div>
             @else
-                <div class="ms-4">
-                    <a href="{{ route('login') }}" class="btn custom-btn custom-border-btn smoothscroll">Login</a>
-                </div>
+                @if (Route::currentRouteNamed('login'))
+                    <div class="ms-4">
+                        <a href="{{ route('register') }}"
+                            class="btn custom-btn custom-border-btn smoothscroll">Register</a>
+                    </div>
+                @else
+                    <div class="ms-4">
+                        <a href="{{ route('login') }}" class="btn custom-btn custom-border-btn smoothscroll">Login</a>
+                    </div>
+                @endif
             @endauth
         </div>
     </div>

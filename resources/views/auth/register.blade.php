@@ -67,7 +67,7 @@
                                     id="password_confirmation" name="password_confirmation" required>
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Register</button>
+                            <button type="submit" class="btn custom-btn smoothscroll mt-3">Register</button>
                         </form>
                         <div class="mt-3">
                             <a href="{{ route('login') }}">Already have an account? Login here</a>

@@ -46,7 +46,7 @@
                                 @enderror
                             </div>
 
-                            <button type="submit" class="btn btn-primary">Login</button>
+                            <button type="submit" class="btn custom-btn smoothscroll mt-3">Login</button>
                         </form>
                         <div class="mt-3">
                             <a href="{{ route('register') }}">Don't have an account? Register here</a>
